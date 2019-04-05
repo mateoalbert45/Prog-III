@@ -14,10 +14,11 @@ private Node addRecursive(Node current, int value) {
         return new Node(value);
     }
  
-    if (value < current.value) {
-        current.left = addRecursive(current.left, value);
-    } else if (value > current.value) {
-        current.right = addRecursive(current.right, value);
+    if (value < current.getvalue()) {
+        current.setLeft(addRecursive(current.left(), value));
+    } else if (value > current.getvalue()) {
+
+        current.setRight(addRecursive(current.right(), value));
     } else {
         // value already exists
         return current;
@@ -31,15 +32,45 @@ public boolean haselem(int value){
 
 }
 
+public Node delete(int value){
+	return searchdelete(root, value);
 
+}
+
+
+private Node searchdelete(Node current, int value){ 
+    	if (value < current.getvalue()) {
+    		current.setLeft(searchdelete(current.left(), value));
+        } else if (value > current.getvalue()) {
+    		current.setRight(searchdelete(current.right(), value));
+        } else {
+        	if(current.left()==null && current.right()== null) {
+        		
+        		return null;
+        	}
+        	else if(current.left()==null){
+
+        		return current.right();
+        	}
+        	else if(current.right()==null){
+
+        		return current.left();
+        	}else{
+                    current.setvalue(current.right().getvalue()); 
+            		current.setRight(searchdelete(current.right(),current.right().getvalue()));
+        		
+        	}
+    }
+		return current;
+}
 private boolean search(Node current, int value){ 
-    if(current.value == value){
+    if(current.getvalue() == value){
     	return true;
     }else{
-    	if (value < current.value) {
-        	return search(current.left, value);
-        } else if (value > current.value) {
-        	return search(current.right, value);
+    	if (value < current.getvalue()) {
+        	return search(current.left(), value);
+        } else if (value > current.getvalue()) {
+        	return search(current.right(), value);
         } else {
         	return false;
     }
@@ -50,22 +81,9 @@ private boolean search(Node current, int value){
 
 }
 
-private int getheight(Node current, int value){ 
-    int piso =1;
 
-    	if (value < current.value) {
-        	return search(current.left, value);
-        } else if (value > current.value) {
-        	return search(current.right, value);
-        } else {
-        	return false;
-    
-	
 
-    }
-	//System.out.println("ne");
 
-}
 
 public Node getroot(){
 	return root;

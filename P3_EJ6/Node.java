@@ -1,9 +1,9 @@
 package P3_EJ6;
 
 public class Node {
- int value;
- Node left;
- Node right;
+ private int value;
+ private Node left;
+ private Node right;
  
  Node(int value){
 	 this.value = value;
@@ -19,6 +19,14 @@ public class Node {
  public Node right(){
 	 return right;
  }
- 
+public void setvalue(int n) {
+	this.value=n;
+}
+ public void setLeft(Node left) {
+     this.left = left;
+ }
+ public void setRight(Node right) {
+     this.right = right;
+ }
  
 }
