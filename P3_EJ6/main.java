@@ -10,8 +10,10 @@ z.add(9);
 z.add(11);
 z.add(12);
 z.add(13);
-z.delete(10);
 
+
+
+System.out.println(z.getheight());
 
 	}
 

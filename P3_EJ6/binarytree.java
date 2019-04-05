@@ -82,7 +82,23 @@ private boolean search(Node current, int value){
 }
 
 
+public int getheight(){
+	return searchheight(root);
+}
 
+private int searchheight(Node current){ 
+	if(current==null) {
+		return 0;
+	}else if(current.left()==null && current.right()==null) {
+			return 1;
+		}else {
+			int l=searchheight(current.left()); 
+			int r=searchheight(current.right()); 
+			return 1+Math.max(l, r);
+	 }
+
+
+}
 
 
 public Node getroot(){
