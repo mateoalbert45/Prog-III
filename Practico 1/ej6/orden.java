@@ -8,11 +8,11 @@ public class orden {
 		lista tmp= new lista();	
 		
 		while(m.hasNext()){ 
-			Node n = m.next();			
-			if (b.pertenece(n.getInfo())) {
-				System.out.println("el numero " + n.getInfo() + " pertence a ambas listas");
+			Object n = m.next();			
+			if (b.pertenece(n)) {
+				System.out.println("el numero " + n.toString() + " pertence a ambas listas");
 			}else {
-				tmp.insert(n.getInfo());
+				tmp.insert(n);
 			}
 		}
 	return tmp;	

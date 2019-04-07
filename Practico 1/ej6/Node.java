@@ -1,24 +1,24 @@
 package ej6;
 
 public class Node {
-	private int info;
+	private Object info;
 	private Node next;
 
 	public Node() {
-	info = 0;
+	info = null;
 	next = null;
 	}
-	public Node(int o, Node n) {
+	public Node(Object o, Node n) {
 	setInfo(o);
 	setNext(n);
 	}
-	public void setInfo(int o) {
+	public void setInfo(Object o) {
 	info = o;
 	}
 	public void setNext(Node n) {
 	next = n;
 	}
-	public int getInfo() {
+	public Object getInfo() {
 	return info;
 	}
 	public Node getNext() {

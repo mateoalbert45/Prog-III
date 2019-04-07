@@ -17,7 +17,7 @@ public class lista {
 	size++;
 	}
 	
-	public void  insert(int data) { 
+	public void  insert(Object data) { 
         Node new_node = new Node(data, null); 
 
         if (first == null) { 
@@ -34,14 +34,15 @@ public class lista {
     } 
 	
 	
-	public boolean pertenece(int a) {
+	public boolean pertenece(Object a) {
 		iterador i1 = new iterador(first);
 		while(i1.hasNext()){
-			Node p = i1.next();
-			if(a==p.getInfo()){
+			Object p = i1.next();
+			if(p.equals(a)){
 			 return true; 
 				}		
 			}
+
 		return false;
 		
 	}
@@ -57,7 +58,7 @@ public class lista {
 	public void print() {
 		Node n = first;
 		while(n!=null) {
-			System.out.print(n.getInfo()+ " -> ");
+			System.out.print(n.getInfo().toString()+ " -> ");
 			n = n.getNext();
 		}
 	}

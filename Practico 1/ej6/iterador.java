@@ -12,9 +12,9 @@ public class iterador implements Iterator<Object>  {
 		return n != null;
 	}
 
-	public Node next() {
-		Node tmp;
-		tmp = n;
+	public Object next() {
+		Object tmp;
+		tmp = n.getInfo();
 		n = n.getNext();
 		return tmp;
 	}
