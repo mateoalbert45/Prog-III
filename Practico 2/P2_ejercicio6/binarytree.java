@@ -4,23 +4,22 @@ public class binarytree {
 Node root;
 
 
-public void add(int value) {
-    root = addRecursive(root, value);
+public void insert(int value) {
+    root = agregar(root, value);
 }
 
 
-private Node addRecursive(Node current, int value) {
+private Node agregar(Node current, int value) {
     if (current == null) {
         return new Node(value);
     }
  
     if (value < current.getvalue()) {
-        current.setLeft(addRecursive(current.left(), value));
+        current.setLeft(agregar(current.left(), value));
     } else if (value > current.getvalue()) {
 
-        current.setRight(addRecursive(current.right(), value));
+        current.setRight(agregar(current.right(), value));
     } else {
-        // value already exists
         return current;
     }
  
