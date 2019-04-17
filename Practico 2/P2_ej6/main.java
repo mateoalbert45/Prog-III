@@ -4,16 +4,19 @@ public class main {
 
 	public static void main(String[] args) {
 binarytree z = new binarytree();
-z.add(15);
-z.add(10);
-z.add(9);
-z.add(11);
-z.add(12);
-z.add(13);
+z.insert(15);
+z.insert(10);
+z.insert(9);
+z.insert(11);
+z.insert(12);
+z.insert(13);
+z.insert(18);
+z.insert(16);
+z.insert(43);
 
 
 
-System.out.println(z.getheight());
+z.getfrontera();
 
 	}
 

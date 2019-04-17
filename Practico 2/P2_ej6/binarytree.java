@@ -1,5 +1,8 @@
 package P3_EJ6;
 
+import java.util.LinkedList;
+import java.util.Vector;
+
 public class binarytree {
 Node root;
 
@@ -97,7 +100,41 @@ private int searchheight(Node current){
 	 }
 
 
+	
+	
+	
 }
+
+public LinkedList<Node> getfrontera(){
+	return searchfrontera(root);
+}
+
+private LinkedList<Node> searchfrontera(Node current){ 
+	LinkedList<Node> l= new LinkedList<Node>();
+	if(current.left()==null && current.right()== null) {
+		System.out.println(current.getvalue());
+		l.add(current);
+		return l;
+	}
+	else {
+     if(current.left()==null){
+    		return searchfrontera(current.right());
+    	}
+    	else if(current.right()==null){
+    		return searchfrontera(current.left());
+    	}
+    	else {
+    		LinkedList<Node> a1= searchfrontera(current.right());
+    		LinkedList<Node> a2= searchfrontera(current.left());
+    		l.addAll(a1);
+    		l.addAll(a2); 
+    		return l;
+    	}
+}
+}
+
+
+
 
 
 public Node getroot(){
