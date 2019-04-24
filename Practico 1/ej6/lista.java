@@ -17,6 +17,11 @@ public class lista {
 	size++;
 	}
 	
+	public iterador getiterador(){
+		return new iterador(first);
+		
+	}
+	
 	public void  insert(Object data) { 
         Node new_node = new Node(data, null); 
 

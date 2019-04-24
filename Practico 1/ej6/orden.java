@@ -4,11 +4,11 @@ public class orden {
 
 	
 	public lista elementos_dinstintos(lista a, lista b) {
-		iterador m= new iterador(a.first);		
+		iterador ita = a.getiterador();		
 		lista tmp= new lista();	
 		
-		while(m.hasNext()){ 
-			Object n = m.next();			
+		while(ita.hasNext()){ 
+			Object n = ita.next();			
 			if (b.pertenece(n)) {
 				System.out.println("el numero " + n.toString() + " pertence a ambas listas");
 			}else {
