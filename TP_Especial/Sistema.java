@@ -1,13 +1,18 @@
-package progTPE;
+package TP_Especial;
 
 import java.util.Vector;
 
 public class Sistema {
 	private Vector<Aeropuerto> Aeropuertos = new Vector<>();
+	private Vector<Reserva> Reservas = new Vector<>();
 
 	
 	public void setAeropuerto(Aeropuerto a){
 		Aeropuertos.add(a);
+	}
+	
+	public void setReserva(Reserva a){
+		Reservas.add(a);
 	}
 	
 	public void dfs() {
@@ -47,18 +52,24 @@ public class Sistema {
 		for(int i=0; i<origen.getRuta().size();i++) {
 			Ruta r = origen.getRuta().elementAt(i);
 			if(r.getDestino().equals(destino)) {
-				System.out.println("ndeasfafs");
-				if(r.contiene(aerolinea)) {
-					int asientos_disponibles = cant_asientos(r,aerolinea);
-					System.out.println(asientos_disponibles);
+				int aux = r.cant_pasajes(aerolinea);
+				if(aux>=0) {
+					System.out.println("hola");
+
 					System.out.println(r.getKilometros());
+					System.out.println(Cant_Pasajes_Disponibles(r,aerolinea,aux));
 				}
+				
 			}
 		}
 	}
 	
-	public int cant_asientos(Ruta r, String aerolinea) {
-		return 0;
+	public int Cant_Pasajes_Disponibles(Ruta r, String aerolinea,int cantidad) {
+		for(int i=0;i<Reservas.size();i++) {
+			return Reservas.elementAt(i).es_igual(r.getOrigen(), r.getDestino(), aerolinea, cantidad);
+		}
+		
+		return cantidad;
 		
 	}
 }
