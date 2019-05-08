@@ -36,5 +36,40 @@ public class Main {
 		s.vuelo_directo(A_Calafate, A_Logan, "a2");
 
 	}
+	
+	
+
+public void dfs(node origen, node objetivo) {
+	for(int i =0;i<nodos.size();i++) {
+		nodos.elementAt(i).setcolor("blanco");
+	}
+	int tiempo=0;
+			dfs_visit(origen,tiempo,origen,objetivo);
+	}
+
+
+public int dfs_visit(node n,int t,node origen,node objetivo) {
+	int tiempo = t+1;
+	n.settiempodestino(tiempo);
+	
+	for(int i=0;i<n.getaristas().size();i++) {
+		node aux=n.getaristas().elementAt(i).getdestination();
+		
+		if(aux.getcolor().equals("blanco")) {
+
+			aux.setcolor("amarillo");
+			System.out.println("--- " + n.getinfo());
+				 tiempo = dfs_visit(aux,tiempo,origen,objetivo);
+			aux.setcolor("blanco");
+			if(aux.equals(objetivo)){
+				System.out.println("camino encontrado");
+			}
+		}
+	}
+	tiempo++;
+	n.settiempofinal(tiempo);
+
+	return tiempo;
+}
 
 }
