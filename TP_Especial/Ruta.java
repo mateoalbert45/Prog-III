@@ -9,7 +9,12 @@ public class Ruta {
 	private boolean Cabotaje;
 	private Vector<Aerolinea> Aerolineas = new Vector<>();
 	
-	
+	public Ruta (Aeropuerto Origen, Aeropuerto Destino, int Kilometros, boolean Cabotaje) {
+		this.Origen = Origen;
+		this.Destino = Destino;
+		this.Kilometros = Kilometros;
+		this.Cabotaje = Cabotaje;
+	}
 	
 	public Aeropuerto getOrigen() {
 		return Origen;
@@ -52,5 +57,16 @@ public class Ruta {
 	}
 	public void setAerolinea(Aerolinea a){
 		Aerolineas.add(a);
+	}
+	
+	public boolean contiene_aerolinea_distinta_a(Aerolinea a) {
+		for(int i=0;i<Aerolineas.size();i++) {
+			Aerolinea aux = Aerolineas.elementAt(i);
+			if(!(aux.equals(a))) {
+				return true;
+			}
+		}
+		return false;
+		
 	}
 }
