@@ -4,7 +4,7 @@ import java.util.Vector;
 
 public class node {
 private Object info;
-	PARA HACER UN GRAFO NO DIRIGIDO NECESITO AGREGAR LA RUTA EN AMBOS NODOS, OSEA AGREGO LA RUTA QUE VA DE "A" a "B"  EN AMBOS NODOS
+	PARA HACER UN GRAFO NO DIRIGIDO NECESITO AGREGAR LA RUTA EN AMBOS NODOS, ES DECIR, AGREGO LA RUTA QUE VA DE "A" a "B"  EN AMBOS NODOS
 private Vector<arista> aristas = new Vector<>();
 private String color;
 private int tiempodestino;
