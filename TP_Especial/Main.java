@@ -1,6 +1,38 @@
 package TP_Especial;
 
 public class Main {
+	//CAMBIAR Cant_Pasajes_Disponibles  PARA QUE LE PASE SOLAMENTE LA RUTA Y  LA CANTIDAD Y DESPUES EN RESRVAS CHEQUEO SEGÚN LA CANTIDAD DE AEROPUERTOS QUE TENGO
+//SI NO ME QUEDA MAL PARA HACER EL SERVICIO 3
+
+
+
+		public void vuelo_directo_pais_a_otro(String país_origen, String país_destino) {
+			for (int i = 0; i < Aeropuertos().size(); i++) {
+				Aeropuerto a = Aeropuertos().elementAt(i);
+				if (a.getPais().equals(país_origen)) {
+for (int i = 0; i < a.getrutas().size(); i++) {
+                   Ruta r = a.getRutas().elementAt(i);
+	                     If(r.getrutas().contienepaisdestino(país_destino))
+If(Cant_Pasajes_Disponibles(r, aerolinea, aux)>0){
+                       System.out.println("país origen” + r.getpasorigen() + “  país destino” r.getpaisdestino());
+
+{
+				//int aux = r.cant_pasajes(aerolinea);
+					
+
+
+if (aux >= 0) {
+						System.out.println("hola");
+	
+						System.out.println(r.getKilometros());
+						System.out.println(Cant_Pasajes_Disponibles(r, aerolinea, aux));
+					}
+	
+				}
+			}
+		}
+			
+
 
 	public static void main(String[] args) {
 		Aeropuerto A_Ezeiza = new Aeropuerto("Ezeiza","ARG","Ezeiza");
