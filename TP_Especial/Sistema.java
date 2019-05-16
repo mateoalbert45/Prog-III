@@ -96,7 +96,7 @@ public class Sistema {
 			Ruta r = origen.getRutas().elementAt(i);
 			if (r.getDestino().equals(destino)) {
 				int aux = r.cant_pasajes(aerolinea);
-				if (aux >= 0) {
+				if (aux > 0) {
 					System.out.println("hola");
 
 					System.out.println(r.getKilometros());
@@ -141,7 +141,7 @@ public class Sistema {
 							System.out.println("soy la cantidad de pasajes disponibles " + pasajes_disponibles);
 
 							if (pasajes_disponibles > 0) {
-								System.out.println("país origen " + r.getOrigen().getNombre() + " país destino "
+								System.out.println("paÃ­s origen " + r.getOrigen().getNombre() + " paÃ­s destino "
 										+ r.getDestino().getNombre());
 							}
 						}
