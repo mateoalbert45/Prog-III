@@ -1,4 +1,4 @@
-package TP_Especial;
+package progTPE;
 
 import java.util.Vector;
 
@@ -13,7 +13,7 @@ private String Estado;
 
 public Aeropuerto (String Nombre, String Pais, String Ciudad) {
 	this.setNombre(Nombre);
-	this.Pais = Pais;
+	this.setPais(Pais);
 	this.Ciudad = Ciudad;
 }
 
@@ -46,5 +46,13 @@ public String getNombre() {
 
 public void setNombre(String nombre) {
 	Nombre = nombre;
+}
+
+public String getPais() {
+	return Pais;
+}
+
+public void setPais(String pais) {
+	Pais = pais;
 }
 }

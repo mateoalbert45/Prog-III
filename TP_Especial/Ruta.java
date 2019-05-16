@@ -1,4 +1,4 @@
-package TP_Especial;
+package progTPE;
 
 import java.util.Vector;
 
@@ -68,5 +68,15 @@ public class Ruta {
 		}
 		return false;
 		
+	}
+	
+	
+	public String getAerolineas_String(){
+		String aux = "";
+		for(int i=0;i<Aerolineas.size();i++) {
+			 aux += Aerolineas.elementAt(i).GetNombre() + " ";
+			
+		}
+		return aux;
 	}
 }

@@ -1,4 +1,4 @@
-package TP_Especial;
+package progTPE;
 
 public class Aerolinea {
 	private String Nombre;
