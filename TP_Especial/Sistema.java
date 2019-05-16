@@ -113,7 +113,7 @@ public class Sistema {
 			//if(aux>=0) {
 				//System.out.println("soy i " + i + " de la ruta con  origen " + r.getOrigen().getNombre());
 				//System.out.println("soy aux "+aux);
-			return calcular_cantidad_pasajes(cantidad);
+			return Cantidad_pasajes_disponibles(cantidad);
 			}
 			}
 			//else if(aux==Reservas.size) {
