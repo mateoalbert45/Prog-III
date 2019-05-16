@@ -7,7 +7,7 @@ private String Aerolinea;
 private int Asientos_Reservados;
 
 
-public int es_igual(Aeropuerto o, Aeropuerto d, String a, int cantidad) {
+public boolean es_igual(Aeropuerto o, Aeropuerto d, String a) {
 	//System.out.println(o.getNombre());
 	//System.out.println(d.getNombre());
 	//System.out.println(a);
@@ -17,14 +17,17 @@ public int es_igual(Aeropuerto o, Aeropuerto d, String a, int cantidad) {
 	//System.out.println("dsadasds ndea  "+Aerolinea);
 	if(Origen.equals(o) && Destino.equals(d) && Aerolinea.equals(a)) {
 		//System.out.println("asdasdsad");
-		return  cantidad-Asientos_Reservados;
+		return  true;
 	}
 	//System.out.println("d");
 
-	return -1;
+	return false;
 	
 }
-
+	
+public int calcular_pasajes_disponibles(int cantidad){
+        return cantidad-Asientos_Reservados
+}
 public void setOrigen(Aeropuerto origen) {
 	Origen = origen;
 }
