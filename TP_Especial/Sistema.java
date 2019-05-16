@@ -109,13 +109,16 @@ public class Sistema {
 
 	public int Cant_Pasajes_Disponibles(Ruta r, String aerolinea, int cantidad) {
 		for (int i = 0; i < Reservas.size(); i++) {
-			int aux = Reservas.elementAt(i).es_igual(r.getOrigen(), r.getDestino(), aerolinea, cantidad);
-			if(aux>=0) {
+			if(Reservas.elementAt(i).es_igual(r.getOrigen(), r.getDestino(), aerolinea, cantidad)){
+			//if(aux>=0) {
 				//System.out.println("soy i " + i + " de la ruta con  origen " + r.getOrigen().getNombre());
-
 				//System.out.println("soy aux "+aux);
-			return aux;
+			return calcular_cantidad_pasajes(cantidad);
 			}
+			}
+			//else if(aux==Reservas.size) {
+			//	return cantidad
+			//}
 		}
 		//System.out.println("asdasdsad");
 		return cantidad;
