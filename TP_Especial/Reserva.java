@@ -7,6 +7,14 @@ private String Aerolinea;
 private int Asientos_Reservados;
 
 
+public Reserva(Aeropuerto o, Aeropuerto d, String a, int asre) {
+	Origen = o;
+	Destino = d;
+	Aerolinea = a;
+	Asientos_Reservados = asre;
+	
+}
+
 public boolean es_igual(Aeropuerto o, Aeropuerto d, String a) {
 	//System.out.println(o.getNombre());
 	//System.out.println(d.getNombre());
@@ -26,20 +34,39 @@ public boolean es_igual(Aeropuerto o, Aeropuerto d, String a) {
 }
 	
 public int calcular_pasajes_disponibles(int cantidad){
-        return cantidad-Asientos_Reservados
+        return cantidad-Asientos_Reservados;
 }
 public void setOrigen(Aeropuerto origen) {
 	Origen = origen;
 }
+
+public Aeropuerto getOrigen() {
+	return Origen;
+}
+
+
 public void setDestino(Aeropuerto destino) {
 	Destino = destino;
 }
+
+public Aeropuerto getDestino() {
+	return Destino;
+}
 public void setNombreAerolinea(String nombre) {
 	Aerolinea = nombre;
+}
+
+
+public String getNombreAerolinea() {
+	return Aerolinea;
 }
 public void setAsientos(int num) {
 	Asientos_Reservados = num;
 }
 
+
+public int getAsientos() {
+	return Asientos_Reservados;
+}
 
 }

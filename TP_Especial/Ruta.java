@@ -5,15 +5,15 @@ import java.util.Vector;
 public class Ruta {
 	private Aeropuerto Origen;
 	private Aeropuerto Destino;
-	private int Kilometros;
+	private Double Kilometros;
 	private boolean Cabotaje;
 	private Vector<Aerolinea> Aerolineas = new Vector<>();
 	
-	public Ruta (Aeropuerto Origen, Aeropuerto Destino, int Kilometros, boolean Cabotaje) {
+	public Ruta (Aeropuerto Origen, Aeropuerto Destino, Double Kilometros, boolean Cabotaje) {
 		this.Origen = Origen;
 		this.Destino = Destino;
 		this.Kilometros = Kilometros;
-		this.Cabotaje = Cabotaje;
+		this.setCabotaje(Cabotaje);
 	}
 	
 	public Aeropuerto getOrigen() {
@@ -49,20 +49,20 @@ public class Ruta {
 		}
 		return -1;
 	}
-	public int getKilometros() {
+	public Double getKilometros() {
 		return Kilometros;
 	}
-	public void setKilometros(int kilometros) {
+	public void setKilometros(Double kilometros) {
 		Kilometros = kilometros;
 	}
 	public void setAerolinea(Aerolinea a){
 		Aerolineas.add(a);
 	}
 	
-	public boolean contiene_aerolinea_distinta_a(Aerolinea a) {
+	public boolean contiene_aerolinea_distinta_a(String a) {
 		for(int i=0;i<Aerolineas.size();i++) {
 			Aerolinea aux = Aerolineas.elementAt(i);
-			if(!(aux.equals(a))) {
+			if(!(aux.GetNombre().equals(a))) {
 				return true;
 			}
 		}
@@ -78,5 +78,13 @@ public class Ruta {
 			
 		}
 		return aux;
+	}
+
+	public boolean getCabotaje() {
+		return Cabotaje;
+	}
+
+	public void setCabotaje(boolean cabotaje) {
+		Cabotaje = cabotaje;
 	}
 }

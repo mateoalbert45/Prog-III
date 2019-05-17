@@ -4,17 +4,17 @@ import java.util.Vector;
 
 public class Aeropuerto {
 private String Nombre;
-private String Pais;
 private String Ciudad;
+private String Pais;
 private Vector<Ruta> Rutas = new Vector<>();
 private String Color;
 private String Estado;
 
 
-public Aeropuerto (String Nombre, String Pais, String Ciudad) {
+public Aeropuerto (String Nombre, String Ciudad,String Pais) {
 	this.setNombre(Nombre);
+	this.setCiudad(Ciudad);
 	this.setPais(Pais);
-	this.Ciudad = Ciudad;
 }
 
 public void setRuta(Ruta a){
@@ -54,5 +54,13 @@ public String getPais() {
 
 public void setPais(String pais) {
 	Pais = pais;
+}
+
+public String getCiudad() {
+	return Ciudad;
+}
+
+public void setCiudad(String ciudad) {
+	Ciudad = ciudad;
 }
 }

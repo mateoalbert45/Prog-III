@@ -10,7 +10,7 @@ public class CSVWritter {
 	public static void main(String[] args) {
 		BufferedWriter bw = null;
 		try {
-			File file = new File("C:/Users/matit/workspace/Prog3-tpe/src/progTPE/Reservas.csv");
+			File file = new File("src/progTPE/Informacion salida/salida.csv");
 			if (!file.exists()) {
 				file.createNewFile();
 			}
