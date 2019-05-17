@@ -197,7 +197,6 @@ public class Main {
 
 	public static void CargarArchivos(Sistema s) {
 
-		// CAMBIAR RUTAS SEGUN LA PC
 		String Archivo_Aeropuertos = "src/progTPE/Informacion para setear/Aeropuertos.csv";
 		String Archivo_Rutas = "src/progTPE/Informacion para setear/Rutas.csv";
 		String Archivo_Reservas = "src/progTPE/Informacion para setear/Reservas.csv";
@@ -242,13 +241,11 @@ public class Main {
 					aerolineas[i] = aerolineas[i].replaceAll("\\}", "");
 					aerolineas[i] = aerolineas[i].replaceAll("\\{", "");
 					String[] aerolineasAux = aerolineas[i].split("-");
-					//System.out.print(aerolineasAux[0]);
-					//System.out.println(aerolineasAux[1]);
+		
 					int numero = Integer.parseInt(aerolineasAux[1]);
 					Aerolinea AeroAux = new Aerolinea(aerolineasAux[0], numero);
 					ruta.setAerolinea(AeroAux);
 				}
-				//System.out.println(ruta.getAerolineas_String());
 				s.setRuta(ruta);
 
 			}
@@ -288,9 +285,7 @@ public class Main {
 			FileWriter fw = new FileWriter(file);
 			bw = new BufferedWriter(fw);
 
-			// Escribo la primer linea del archivo
 			Object km = ruta_info.elementAt(0);
-			//Double km = Double.parseDouble(ruta_info.elementAt(0));
 			Object asientos_disponibles = ruta_info.elementAt(1);
 			String contenidoLinea1 = km + ";"+ asientos_disponibles;
 			bw.write(contenidoLinea1);
