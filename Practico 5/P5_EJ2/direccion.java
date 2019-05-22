@@ -21,6 +21,19 @@ public class direccion {
 	    return numero;
 	}
 
+	public boolean getDireccionConNumero(int i){
+		if(i == 0){
+			return norte;
+		}else if(i== 1){
+			return sur;
+		}else if( i == 2){
+			return este;
+		}else if(i == 3) {
+			return oeste;
+		}
+		return false;
+	}
+	
 	public boolean getNorte(){
 	    return norte;
 	}public boolean getSur(){

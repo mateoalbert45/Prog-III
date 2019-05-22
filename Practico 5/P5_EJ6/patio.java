@@ -23,15 +23,6 @@ public class patio {
 			int x_destino, int y_destino) {
 		System.out.println("x inicio" + x_inicio);
 		System.out.println(" y inicio" + y_inicio);
-		// System.out.println("hola");
-		// es_solucion(mat);
-		// System.out.println(fila);
-//		System.out.println("x inicio" + x_inicio);
-//		System.out.println(" y inicio" + y_inicio);
-//		System.out.println("x inicio" + x_inicio);
-//		System.out.println(" y inicio" + y_inicio);
-//		System.out.println("x inicio" + x_inicio);
-//		System.out.println(" y inicio" + y_inicio);
 		if (x_inicio == x_destino && y_inicio == y_destino && posiciones_recorridas.size() > 0) {
 			todoslosresultados++;
 			if (es_solucion(posiciones)) {
@@ -40,59 +31,45 @@ public class patio {
 			}
 
 		} else {
-			// posiciones_recorridas.add(mat[x_destino][y_destino]);
-			for (int i = 0; i < 3; i++) {
-				posicion actual = mat[x_inicio][y_inicio];
-				posiciones_recorridas.add(actual);
-				if (x_inicio - 1 >= 0 && mat[x_inicio - 1][y_inicio].getEstado() == "pisado"
-						&& !(posiciones_recorridas.contains(mat[x_inicio - 1][y_inicio]))) { // NORTE
+			for (int i = 0; i < 4; i++) {
 
-					posiciones_recorridas.add(actual);
-					x_inicio--;
-					back(mat, posiciones_recorridas, x_inicio, y_inicio, x_destino, y_destino);
-					posiciones_recorridas.removeElement(mat[x_inicio + 1][y_inicio]);
+				int x_inicio_aux = establecer_x(x_inicio, i);
+				int y_inicio_aux = establecer_y(y_inicio, i);
 
-				}
+				if (corroborar_movimiento(x_inicio_aux, y_inicio_aux, mat)) {
+					posicion actual = mat[x_inicio_aux][y_inicio_aux];
 
-				else if (x_inicio + 1 <= 4 && mat[x_inicio + 1][y_inicio].getEstado() == "pisado"
-						&& !(posiciones_recorridas.contains(mat[x_inicio + 1][y_inicio]))) { // SUR
-//				System.out.println("x inicio" + x_inicio);
-//				System.out.println(" y inicio" + y_inicio);
-//				System.out.println(posiciones.contains(mat[x_inicio + 1][y_inicio]));
-//				System.out.println(posiciones.size());
+					if (mat[x_inicio_aux][y_inicio_aux].getEstado() == "pisado")
+						if (!(posiciones_recorridas.contains(mat[x_inicio_aux][y_inicio_aux]))) {
 
-					posiciones_recorridas.add(actual);
+							posiciones_recorridas.add(actual);
+							back(mat, posiciones_recorridas, x_inicio_aux, y_inicio_aux, x_destino, y_destino);
+							numeros_recorridos.removeElement(actual);
 
-					x_inicio++;
-					back(mat, posiciones_recorridas, x_inicio, y_inicio, x_destino, y_destino);
-					posiciones_recorridas.removeElement(mat[x_inicio - 1][y_inicio]);
-
-				} else if (y_inicio + 1 <= 4 && mat[x_inicio][y_inicio + 1].getEstado() == "pisado"
-						&& !(posiciones_recorridas.contains(mat[x_inicio][y_inicio + 1]))) {// ESTE
-//				System.out.println("x inicio" + x_inicio);
-//				System.out.println(" y inicio" + y_inicio);
-					// System.out.println(posiciones_recorridas.contains(mat[x_inicio][y_inicio +
-					// 1]));
-					System.out.println("sdadsdsdasd");
-
-					posiciones_recorridas.add(actual);
-
-					y_inicio++;
-					back(mat, posiciones_recorridas, x_inicio, y_inicio, x_destino, y_destino);
-					posiciones_recorridas.removeElement(mat[x_inicio][y_inicio - 1]);
-
-				} else if (y_inicio - 1 >= 0 && mat[x_inicio][y_inicio - 1].getEstado() == "pisado"
-						&& !(posiciones_recorridas.contains(mat[x_inicio][y_inicio - 1]))) {// OESTE
-
-					posiciones_recorridas.add(actual);
-
-					y_inicio--;
-					back(mat, posiciones_recorridas, x_inicio, y_inicio, x_destino, y_destino);
-					posiciones_recorridas.removeElement(mat[x_inicio][y_inicio + 1]);
-
+						}
 				}
 
 			}
+		}
+	}
+
+	public int establecer_x(int x, int i) {
+		if (i == 0) {
+			return x - 1;
+		} else if (i == 1) {
+			return x + 1;
+		} else {
+			return x;
+		}
+	}
+
+	public int establecer_y(int y, int i) {
+		if (i == 2) {
+			return y + 1;
+		} else if (i == 3) {
+			return y - 1;
+		} else {
+			return y;
 		}
 	}
 
@@ -107,21 +84,30 @@ public class patio {
 		}
 	}
 
-//	public void setear_lugar_pisado(posicion p) {
-//		mat[0][1] = p;
-//		mat[0][2] = p;
-//		mat[0][3] = p;
-//		mat[0][4] = p;
-//		mat[1][1] = p;
-//		mat[1][4] = p;
-//		mat[2][1] = p;
-//		mat[2][2] = p;
-//		mat[2][4] = p;
-//		mat[3][2] = p;
-//		mat[3][3] = p;
-//		mat[3][4] = p;
-//
-//	}
+	public boolean corroborar_movimiento(int x, int y, posicion[][] mat) {
+		if (x >= 0 && x < mat.length) {
+			if (y >= 0 && y < mat[0].length) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// public void setear_lugar_pisado(posicion p) {
+	// mat[0][1] = p;
+	// mat[0][2] = p;
+	// mat[0][3] = p;
+	// mat[0][4] = p;
+	// mat[1][1] = p;
+	// mat[1][4] = p;
+	// mat[2][1] = p;
+	// mat[2][2] = p;
+	// mat[2][4] = p;
+	// mat[3][2] = p;
+	// mat[3][3] = p;
+	// mat[3][4] = p;
+	//
+	// }
 
 	public void imprimir_matriz() {
 		for (int i = 0; i < mat.length; i++) {
