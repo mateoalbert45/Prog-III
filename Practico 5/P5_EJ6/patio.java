@@ -32,19 +32,23 @@ public class patio {
 
 		} else {
 			for (int i = 0; i < 4; i++) {
+				//fiajate que si lo pones aca a  la posicion actual te anda pero no podes encontrar los resultados
+				posicion actual = mat[x_inicio][y_inicio];
 
 				int x_inicio_aux = establecer_x(x_inicio, i);
 				int y_inicio_aux = establecer_y(y_inicio, i);
 
 				if (corroborar_movimiento(x_inicio_aux, y_inicio_aux, mat)) {
-					posicion actual = mat[x_inicio_aux][y_inicio_aux];
+					//si lo pones aca a  la posicion actual no anda bien pero encuentra los resultados
+
+					//posicion actual = mat[x_inicio_aux][y_inicio_aux];
 
 					if (mat[x_inicio_aux][y_inicio_aux].getEstado() == "pisado")
 						if (!(posiciones_recorridas.contains(mat[x_inicio_aux][y_inicio_aux]))) {
 
 							posiciones_recorridas.add(actual);
 							back(mat, posiciones_recorridas, x_inicio_aux, y_inicio_aux, x_destino, y_destino);
-							numeros_recorridos.removeElement(actual);
+							posiciones_recorridas.removeElement(actual);
 
 						}
 				}
