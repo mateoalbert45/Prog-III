@@ -33,14 +33,16 @@ public class Sistema {
 
 	}
 
-	public void impimir_aeropuertos() {
-		for (int i = 0; i < Aeropuertos.size(); i++) {
-			System.out.println("Aeropuerto: " + Aeropuertos.elementAt(i).getNombre());
-			System.out.println("Ciudad: " + Aeropuertos.elementAt(i).getCiudad());
-			System.out.println("Pais: " + Aeropuertos.elementAt(i).getPais());
+	public void impimir_aeropuertos(Vector<Aeropuerto> aeropuertos_visitados) {
+		for (int i = 0; i < aeropuertos_visitados.size(); i++) {
+			System.out.println("Aeropuerto: " + aeropuertos_visitados.elementAt(i).getNombre());
+//			System.out.println("Ciudad: " + aeropuertos_visitados.elementAt(i).getCiudad());
+//			System.out.println("Pais: " + aeropuertos_visitados.elementAt(i).getPais());
 			System.out.println("-----------------------------");
 
 		}
+		System.out.println("---dooooouuuu-----");
+
 	}
 
 	public void imprimir_reservas() {
@@ -116,6 +118,127 @@ public class Sistema {
 
 	}
 
+	// enunciado 2
+	// backtracking
+
+	public void dfs(Aeropuerto destino) {
+
+		for (int i = 0; i < Aeropuertos.size(); i++) {
+			Aeropuertos.elementAt(i).setEstado("blanco");
+		}
+		Vector<Aeropuerto> aeropuertos_visitados = new Vector<>();
+		Vector<Aeropuerto> lista_nodos = new Vector<>();
+
+//		for(int i =0;i<Aeropuertos.size();i++) {
+//			Aeropuerto n= Aeropuertos.elementAt(i);
+		dfs_visit(destino, destino, aeropuertos_visitados);
+
+	}
+
+//	public int dfs_visit(Aeropuerto actual, Aeropuerto destino) {
+//		actual.setEstado("amarillo");
+//		//for(int i=0;i<actual.getRutas().size();i++) {
+//			Aeropuerto aux=actual.getRutas().elementAt(0).getDestino();
+//
+//			if(aux.getEstado().equals("blanco")) {
+//						 dfs_visit(aux,destino);
+//			}
+//
+//		//}		
+//		actual.setEstado("negro");
+//		
+//		System.out.println(actual.getNombre());
+//		return 0;
+//	}
+
+	public void dfs_visit(Aeropuerto actual, Aeropuerto destino, Vector<Aeropuerto> aeropuertos_visitados) {
+
+		actual.getNombre();
+		if (aeropuertos_visitados.size() == 3) { //Aeropuertos.size()-1
+			aeropuertos_visitados.add(actual);
+			System.out.println("hola");
+			impimir_aeropuertos(aeropuertos_visitados);
+
+		} else {
+
+			for (int i = 0; i < actual.getRutas().size(); i++) {
+////				Ruta temporal = actual.getRutas().elementAt(i);
+				Aeropuerto aux = actual.getRutas().elementAt(i).getDestino();
+				aux.getNombre();
+
+				//actual.getRutas().remove(temporal);
+				
+				if (aux.getEstado().equals("blanco")) {
+					if (!aeropuertos_visitados.contains(aux)) {
+						aeropuertos_visitados.add(actual);
+						actual.setEstado("amarillo");
+
+						dfs_visit(aux, destino, aeropuertos_visitados);
+						aeropuertos_visitados.remove(actual);
+						actual.setEstado("blanco");
+
+
+					}
+				}
+//		//		actual.getRutas().add(temporal);
+
+
+			}
+
+			// }
+			// actual.setEstado("negro");
+
+			// System.out.println(actual.getNombre());
+		}
+
+	}
+
+	
+	
+//	public void dfs_visit(Aeropuerto actual, Aeropuerto destino, Vector<Aeropuerto> aeropuertos_visitados, int hola) {
+//		
+//		actual.getNombre();
+//
+//
+//			for (int i = 0; i < actual.getRutas().size(); i++) {
+//				Aeropuerto aux = actual.getRutas().elementAt(i).getDestino();
+//				aeropuertos_visitados.add(actual);
+//				System.out.println("hola");
+//
+//				if (aux.equals(destino) && hola != 0) {
+//
+//					aeropuertos_visitados.add(aux);
+//					System.out.println("hola");
+//
+//					//imprimir_info_camino(camino);
+//
+//					aeropuertos_visitados.remove(aux);
+//
+//				} else if (aux.getEstado().equals("Sin Visitar")) {
+//
+//					aux.setEstado("Visitado");
+//					hola=1;
+//					dfs_visit(aux, destino, aeropuertos_visitados,1);
+//
+//					aux.setEstado("Sin Visitar");
+//				}
+//				aeropuertos_visitados.remove(actual);
+//
+//			}
+//		//		actual.getRutas().add(temporal);
+//
+//
+//			}
+
+			// }
+			// actual.setEstado("negro");
+
+			// System.out.println(actual.getNombre());
+		
+
+	
+	
+	
 	public void imprimir_info_camino(Camino c) {
 		System.out.println("Camino encontrado ");
 		for (int i = 0; i < c.getRutas().size(); i++) {
