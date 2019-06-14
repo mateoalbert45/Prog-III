@@ -13,113 +13,124 @@ import java.util.Vector;
 public class Main {
 //
 	public static void main(String[] args) {
+////		Sistema s = new Sistema();
+////		CargarArchivos(s);
+////		opciones(s);
+//		
+//		//s.holaxd();
+//		Aeropuerto A_Ezeiza = new Aeropuerto("Ezeiza","ARG","ARG");
+//		Aeropuerto A_Calafate = new Aeropuerto("Calafate", "ARG", "ARG");
+//		Aeropuerto A_Logan = new Aeropuerto("Logan", "USA", "USA");
+//		Aeropuerto A_Kennedy = new Aeropuerto("Kennedy", "USA", "USA");
+//		Aeropuerto A_Pucon = new Aeropuerto("Pucon", "CHI", "CHI");
+//		Aeropuerto A_Benitez = new Aeropuerto("Benitez", "CHI", "CHI");
+//		Aeropuerto A_Elprat = new Aeropuerto("Elprat", "ESP", "ESP");
+//		
+//		Aerolinea a1 = new Aerolinea ("a1",11);
+//		Aerolinea a2 = new Aerolinea ("a2",12);
+//		Aerolinea a3 = new Aerolinea ("a3",13);
+//		Aerolinea a4 = new Aerolinea ("a4",14);
+//
+//		
+//		Reserva res1 = new Reserva(A_Ezeiza,A_Elprat,"a1",11);
+////		res1.setOrigen(A_Ezeiza);
+////		res1.setDestino(A_Elprat);
+////		res1.setNombreAerolinea("a1");
+////		res1.setAsientos(11);
+//		
+//		Reserva res2 = new Reserva (A_Ezeiza,A_Elprat,"a2",2);
+////		res2.setOrigen(A_Ezeiza);
+////		res2.setDestino(A_Elprat);
+////		res2.setNombreAerolinea("a2");
+////		res2.setAsientos(2);
+//		
+//		Reserva res3 = new Reserva (A_Calafate,A_Elprat,"a3",10);
+////		res3.setOrigen(A_Calafate);
+////		res3.setDestino(A_Elprat);
+////		res3.setNombreAerolinea("a3");
+////		res3.setAsientos(10);
+//		
+//		Ruta r1 = new Ruta(A_Ezeiza,A_Calafate,5.0,true); //
+//		//r1.setOrigen(A_Ezeiza);
+//		//r1.setDestino(A_Calafate);
+//		//r1.setKilometros(1);
+//
+//
+//		Ruta r2 = new Ruta(A_Calafate,A_Logan,1.0,true);
+//		r2.setAerolinea(a1);
+//		Ruta r3 = new Ruta(A_Logan,A_Kennedy,1.0,true);
+//		r3.setAerolinea(a1);
+//		Ruta r4 = new Ruta(A_Kennedy,A_Calafate,1.0,true);
+//		r4.setAerolinea(a1);
+//		Ruta r5 = new Ruta(A_Ezeiza,A_Elprat,10.0,true);
+//		r5.setAerolinea(a1);
+//		r5.setAerolinea(a2);
+//
+//
+//		Ruta r6 = new Ruta(A_Calafate,A_Elprat,3.0,true);  
+//		r6.setAerolinea(a3);
+//		r6.setAerolinea(a1);
+//
+//		Ruta r7 = new Ruta(A_Ezeiza,A_Benitez,1.0,true);
+//		r7.setAerolinea(a2);
+//		r7.setAerolinea(a3);
+//
+//		Ruta r8 = new Ruta(A_Elprat,A_Benitez,4.0,true);  
+//		r8.setAerolinea(a2);
+//
+//		Ruta r9 = new Ruta(A_Elprat,A_Kennedy,4.0,true);  
+//		
+//		Ruta r10 = new Ruta(A_Elprat,A_Logan,4.0,true);  
+//
+//
+////		A_Ezeiza.setRuta(r1);
+////		A_Calafate.setRuta(r2);
+////		A_Logan.setRuta(r3);
+////		A_Kennedy.setRuta(r4);
+////		A_Ezeiza.setRuta(r5);
+////		A_Calafate.setRuta(r6);
+////		A_Ezeiza.setRuta(r7);
+////		A_Elprat.setRuta(r8);
+//
+//		
+//
+//		
 //		Sistema s = new Sistema();
-//		CargarArchivos(s);
-//		opciones(s);
-		
-		//s.holaxd();
-		Aeropuerto A_Ezeiza = new Aeropuerto("Ezeiza","ARG","ARG");
-		Aeropuerto A_Calafate = new Aeropuerto("Calafate", "ARG", "ARG");
-		Aeropuerto A_Logan = new Aeropuerto("Logan", "USA", "USA");
-		Aeropuerto A_Kennedy = new Aeropuerto("Kennedy", "USA", "USA");
-		Aeropuerto A_Pucon = new Aeropuerto("Pucon", "CHI", "CHI");
-		Aeropuerto A_Benitez = new Aeropuerto("Benitez", "CHI", "CHI");
-		Aeropuerto A_Elprat = new Aeropuerto("Elprat", "ESP", "ESP");
-		
-		Aerolinea a1 = new Aerolinea ("a1",11);
-		Aerolinea a2 = new Aerolinea ("a2",12);
-		Aerolinea a3 = new Aerolinea ("a3",13);
-		Aerolinea a4 = new Aerolinea ("a4",14);
-
-		
-		Reserva res1 = new Reserva(A_Ezeiza,A_Elprat,"a1",11);
-//		res1.setOrigen(A_Ezeiza);
-//		res1.setDestino(A_Elprat);
-//		res1.setNombreAerolinea("a1");
-//		res1.setAsientos(11);
-		
-		Reserva res2 = new Reserva (A_Ezeiza,A_Elprat,"a2",2);
-//		res2.setOrigen(A_Ezeiza);
-//		res2.setDestino(A_Elprat);
-//		res2.setNombreAerolinea("a2");
-//		res2.setAsientos(2);
-		
-		Reserva res3 = new Reserva (A_Calafate,A_Elprat,"a3",10);
-//		res3.setOrigen(A_Calafate);
-//		res3.setDestino(A_Elprat);
-//		res3.setNombreAerolinea("a3");
-//		res3.setAsientos(10);
-		
-		Ruta r1 = new Ruta(A_Ezeiza,A_Calafate,5.0,true); //
-		//r1.setOrigen(A_Ezeiza);
-		//r1.setDestino(A_Calafate);
-		//r1.setKilometros(1);
-		r1.setAerolinea(a3);
-		r1.setAerolinea(a2);
-
-		Ruta r2 = new Ruta(A_Calafate,A_Logan,1.0,true);
-		r2.setAerolinea(a1);
-		Ruta r3 = new Ruta(A_Logan,A_Kennedy,1.0,true);
-		r3.setAerolinea(a1);
-		Ruta r4 = new Ruta(A_Kennedy,A_Calafate,1.0,true);
-		r4.setAerolinea(a1);
-		Ruta r5 = new Ruta(A_Ezeiza,A_Elprat,10.0,true);
-		r5.setAerolinea(a1);
-		r5.setAerolinea(a2);
-
-
-		Ruta r6 = new Ruta(A_Calafate,A_Elprat,3.0,true);  
-		r6.setAerolinea(a3);
-		r6.setAerolinea(a1);
-
-		Ruta r7 = new Ruta(A_Ezeiza,A_Benitez,1.0,true);
-		r7.setAerolinea(a2);
-		r7.setAerolinea(a3);
-
-		Ruta r8 = new Ruta(A_Elprat,A_Benitez,4.0,true);  
-		r8.setAerolinea(a2);
-
-		
-//		A_Ezeiza.setRuta(r1);
-//		A_Calafate.setRuta(r2);
-//		A_Logan.setRuta(r3);
-//		A_Kennedy.setRuta(r4);
-//		A_Ezeiza.setRuta(r5);
-//		A_Calafate.setRuta(r6);
-//		A_Ezeiza.setRuta(r7);
-//		A_Elprat.setRuta(r8);
-
-		
-
-		
-		Sistema s = new Sistema();
-		s.setAeropuerto(A_Ezeiza);
-		s.setAeropuerto(A_Calafate);
-		s.setAeropuerto(A_Logan);
-		s.setAeropuerto(A_Kennedy);
-		s.setAeropuerto(A_Elprat);
-		s.setAeropuerto(A_Benitez);
-		
-		s.setRuta(r1);
-		s.setRuta(r2);
-		s.setRuta(r3);
-		s.setRuta(r4);
-		s.setRuta(r5);
-		s.setRuta(r6);
-		s.setRuta(r7);
-		s.setRuta(r8);
-
-
-
-		s.setReserva(res1);
-		s.setReserva(res2);
-		s.setReserva(res3);
-
-
-		//s.vuelo_directo(A_Calafate, A_Logan, "a2");
-		//s.dfs(A_Ezeiza, A_Benitez, a3);
-		//s.vuelo_directo_pais_a_otro("ARG", "ESP");
-		s.dfs(A_Calafate);
+//		s.setAeropuerto(A_Ezeiza);
+//		s.setAeropuerto(A_Calafate);
+//		s.setAeropuerto(A_Logan);
+//		s.setAeropuerto(A_Kennedy);
+//		s.setAeropuerto(A_Elprat);
+//		s.setAeropuerto(A_Benitez);
+//		
+//		s.setRuta(r1);
+//		s.setRuta(r2);
+//		s.setRuta(r3);
+//		s.setRuta(r4);
+//		s.setRuta(r5);
+//		s.setRuta(r6);
+//		s.setRuta(r7);
+//		s.setRuta(r8);
+//		s.setRuta(r9);
+//		s.setRuta(r10);
+//
+//
+//
+//		s.setReserva(res1);
+//		s.setReserva(res2);
+//		s.setReserva(res3);
+//
+//
+//		//s.vuelo_directo(A_Calafate, A_Logan, "a2");
+//		//s.dfs(A_Ezeiza, A_Benitez, a3);
+//		//s.vuelo_directo_pais_a_otro("ARG", "ESP");
+//		s.camino_corto_backtracking(A_Elprat);
+	
+	
+	
+	Sistema s = new Sistema();
+	CargarArchivos(s);
+	opciones(s);
 	}
 //	
 //	
@@ -127,223 +138,280 @@ public class Main {
 //
 //
 	
-//	public static void opciones(Sistema s) {
-//		System.out.println("Ingresa 0 para salir");
-//		System.out.println("Ingresa 1 para listar todos los aeropuertos");
-//		System.out.println("Ingresa 2 para listar todos las reservas");
-//		System.out.println("Ingresa 3 para realizar servicio 1");
-//		System.out.println("Ingresa 4 para realizar servicio 2");
-//		System.out.println("Ingresa 5 para realizar servicio 3");
-//
-//		
-//
-//		int num = -1;
-//		
-//		while(num!=0) {
-//			num = cargar_numero();
-//			if(num == 1) {
-//				s.impimir_aeropuertos();
-//			}
-//			else if (num == 2) {
-//				s.imprimir_reservas();
-//			}
-//			else if (num == 3) {
-//				System.out.println("Ingresa el nombre del aeropuerto origen");
-//				Aeropuerto origen = s.Buscar_Aeropuerto(cargar_palabra());
-//				System.out.println("Ingresa el nombre del aeropuerto origen");
-//				Aeropuerto destino = s.Buscar_Aeropuerto(cargar_palabra());
-//				System.out.println("Ingresa la aerolinea deseada");
-//				String aerolinea = cargar_palabra();
-//				Vector <Object> info = s.vuelo_directo(origen, destino, aerolinea);
-//				escribir_archivo_servicio1(info);
-//			}
-//			else if (num ==4) {
-//				System.out.println("Ingresa el nombre del aeropuerto origen");
-//				Aeropuerto origen = s.Buscar_Aeropuerto(cargar_palabra());
-//				System.out.println("Ingresa el nombre del aeropuerto origen");
-//				Aeropuerto destino = s.Buscar_Aeropuerto(cargar_palabra());
-//				System.out.println("Ingresa el nombre de la aerolinea que NO deseea utilizar");
-//				String aerolinea = cargar_palabra();
-//				Vector<Camino> info = s.Vuelos_Disponibles(origen, destino, aerolinea);
-//				escribir_archivo_servicio2(info);
-//			}
-//			else if (num == 5) {
-//				System.out.println("Ingresa el nombre del pais origen");
-//				String origen = cargar_palabra();
-//				System.out.println("Ingresa el nombre del pais destino");
-//				String destino = cargar_palabra();
-//				s.vuelo_directo_pais_a_otro(origen, destino);
-//
-//			}
-//		}
-//
-//		
-//		
-//	}
-//	
-//	
-//	public static int cargar_numero() {
-//		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-//		int num;
-//		try {
-//			num = new Integer(entrada.readLine());
-//		} catch (Exception exc) {
-//			num = 0;
-//		}
-//		return num;
-//	}
-//	
-//	public static String cargar_palabra() {
-//		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-//		String palabra;
-//		try {
-//			palabra = new String(entrada.readLine());
-//		} catch (Exception exc) {
-//			System.out.println( exc );
-//			palabra = "hola";
-//		}
-//		return palabra;
-//	}
-//	
-//
-//	public static void CargarArchivos(Sistema s) {
-//
-//		String Archivo_Aeropuertos = "src/progTPE/Informacion para setear/Aeropuertos.csv";
-//		String Archivo_Rutas = "src/progTPE/Informacion para setear/Rutas.csv";
-//		String Archivo_Reservas = "src/progTPE/Informacion para setear/Reservas.csv";
-//		String line = "";
-//		String cvsSplitBy = ";";
-//
-//		try (BufferedReader br = new BufferedReader(new FileReader(Archivo_Aeropuertos))) {
-//
-//			while ((line = br.readLine()) != null) {
-//
-//				String[] aeropuertos = line.split(cvsSplitBy);
-//
-//				Aeropuerto aeropuerto = new Aeropuerto(aeropuertos[0], aeropuertos[1], aeropuertos[2]);
-//				s.setAeropuerto(aeropuerto);
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		try (BufferedReader br = new BufferedReader(new FileReader(Archivo_Rutas))) {
-//
-//			while ((line = br.readLine()) != null) {
-//
-//				String[] rutas = line.split(cvsSplitBy);
-//
-//				Vector<Aerolinea> aux = new Vector<>();
-//
-//				Aeropuerto origen = s.Buscar_Aeropuerto(rutas[0]);
-//				Aeropuerto destino = s.Buscar_Aeropuerto(rutas[1]);
-//				Double km = Double.parseDouble(rutas[2]);
-//				boolean cabotaje = Boolean.parseBoolean(rutas[3]);
-//				Ruta ruta = new Ruta(origen, destino, km, cabotaje);
-//
-//				if (rutas[3].equals("1")) {
-//					rutas[3] = "false";
-//				} else {
-//					rutas[3] = "true";
-//				}
-//				
-//
-//				String[] aerolineas = rutas[4].split(",");
-//				for (int i = 0; i < aerolineas.length; i++) {
-//					aerolineas[i] = aerolineas[i].replaceAll("\\}", "");
-//					aerolineas[i] = aerolineas[i].replaceAll("\\{", "");
-//					String[] aerolineasAux = aerolineas[i].split("-");
-//		
-//					int numero = Integer.parseInt(aerolineasAux[1]);
-//					Aerolinea AeroAux = new Aerolinea(aerolineasAux[0], numero);
-//					ruta.setAerolinea(AeroAux);
-//				}
-//				s.setRuta(ruta);
-//
-//			}
-//			
-//			
-//		
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		try (BufferedReader br = new BufferedReader(new FileReader(Archivo_Reservas))) {
-//
-//			while ((line = br.readLine()) != null) {
-//
-//				String[] reservas = line.split(cvsSplitBy);
-//				Aeropuerto origen = s.Buscar_Aeropuerto(reservas[0]);
-//				Aeropuerto destino = s.Buscar_Aeropuerto(reservas[1]);
-//				int cant = Integer.parseInt(reservas[3]);
-//				Reserva reserva = new Reserva(origen, destino, reservas[2], cant);
-//				s.setReserva(reserva);
-//			}
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	
-//	}
-//	
-//	public static void escribir_archivo_servicio1(Vector<Object> ruta_info) {
-//		
-//		BufferedWriter bw = null;
-//		try {
-//			File file = new File("src/progTPE/Informacion salida/salida.csv");
-//			if (!file.exists()) {
-//				file.createNewFile();
-//			}
-//
-//			FileWriter fw = new FileWriter(file);
-//			bw = new BufferedWriter(fw);
-//
-//			Object km = ruta_info.elementAt(0);
-//			Object asientos_disponibles = ruta_info.elementAt(1);
-//			String contenidoLinea1 = km + ";"+ asientos_disponibles;
-//			bw.write(contenidoLinea1);
-//			bw.newLine();
-//
-//		} catch (IOException ioe) {
-//			ioe.printStackTrace();
-//		} finally {
-//			try {
-//				if (bw != null)
-//					bw.close();
-//			} catch (Exception ex) {
-//				System.out.println("Error cerrando el BufferedWriter" + ex);
-//			}
-//		}
-//	}
-//	public static void escribir_archivo_servicio2(Vector<Camino> caminos) {
-//		
-//		BufferedWriter bw = null;
-//		try {
-//			File file = new File("src/progTPE/Informacion salida/salida.csv");
-//			if (!file.exists()) {
-//				file.createNewFile();
-//			}
-//
-//			FileWriter fw = new FileWriter(file);
-//			bw = new BufferedWriter(fw);
-//
-//			
-//			for(int i =0;i<caminos.size();i++) {
-//				Camino aux = caminos.elementAt(i);
-//				String contenidoLinea1 = aux.getKilometros() + ";"+ aux.getRutas();
-//				bw.write(contenidoLinea1);
-//				bw.newLine();
-//			}
-//		} catch (IOException ioe) {
-//			ioe.printStackTrace();
-//		} finally {
-//			try {
-//				if (bw != null)
-//					bw.close();
-//			} catch (Exception ex) {
-//				System.out.println("Error cerrando el BufferedWriter" + ex);
-//			}
-//		}
-//	}
+	public static void opciones(Sistema s) {
+		System.out.println("Ingresa 0 para salir");
+		System.out.println("Ingresa 1 para listar todos los aeropuertos");
+		System.out.println("Ingresa 2 para listar todos las reservas");
+		System.out.println("Ingresa 3 para realizar servicio 1");
+		System.out.println("Ingresa 4 para realizar servicio 2");
+		System.out.println("Ingresa 5 para realizar servicio 3");
+		System.out.println("Ingresa 6 para realizar servicio camino mas corto con backtracking");
+		System.out.println("Ingresa 7 para realizar servicio camino mas corto con greedy");
+		
+		
+
+		int num = -1;
+		
+		while(num!=0) {
+			num = cargar_numero();
+			if(num == 1) {
+				s.impimir_aeropuertos();
+			}
+			else if (num == 2) {
+				s.imprimir_reservas();
+			}
+			else if (num == 3) {
+				System.out.println("Ingresa el nombre del aeropuerto origen");
+				Aeropuerto origen = s.Buscar_Aeropuerto(cargar_palabra());
+				System.out.println("Ingresa el nombre del aeropuerto destino");
+				Aeropuerto destino = s.Buscar_Aeropuerto(cargar_palabra());
+				System.out.println("Ingresa la aerolinea deseada");
+				String aerolinea = cargar_palabra();
+				Vector <Object> info = s.vuelo_directo(origen, destino, aerolinea);
+				escribir_archivo_servicio1(info);
+			}
+			else if (num ==4) {
+				System.out.println("Ingresa el nombre del aeropuerto origen");
+				Aeropuerto origen = s.Buscar_Aeropuerto(cargar_palabra());
+				System.out.println("Ingresa el nombre del aeropuerto destino");
+				Aeropuerto destino = s.Buscar_Aeropuerto(cargar_palabra());
+				System.out.println("Ingresa el nombre de la aerolinea que NO deseea utilizar");
+				String aerolinea = cargar_palabra();
+				Vector<Camino> info = s.Vuelos_Disponibles(origen, destino, aerolinea);
+				escribir_archivo_servicio2(info);
+			}
+			else if (num == 5) {
+				System.out.println("Ingresa el nombre del pais origen");
+				String origen = cargar_palabra();
+				System.out.println("Ingresa el nombre del pais destino");
+				String destino = cargar_palabra();
+				s.vuelo_directo_pais_a_otro(origen, destino);
+
+			}
+			else if (num == 6) {
+				System.out.println("Ingresa el nombre del aeropuerto origen");
+				Aeropuerto origen = s.Buscar_Aeropuerto(cargar_palabra());
+				Camino info =  s.camino_corto_backtracking(origen);
+				if(DistintoNull(info)) {
+				escribir_archivo_tpeParte2(info);
+				}
+			}
+			else if (num == 7) {
+				System.out.println("Ingresa el nombre del aeropuerto origen");
+				Aeropuerto origen = s.Buscar_Aeropuerto(cargar_palabra());
+				Camino info =  s.camino_corto_greedy(origen,origen);
+				escribir_archivo_tpeParte2(info);
+			}
+			
+			
+		}
+
+		
+		
+	}
 	
+	public static boolean DistintoNull(Camino camino) {
+		if(camino==null) {
+			return false;
+		}
+		else {
+		return true;
+		}
+		
+	}
+	
+	public static int cargar_numero() {
+		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		int num;
+		try {
+			num = new Integer(entrada.readLine());
+		} catch (Exception exc) {
+			num = 0;
+		}
+		return num;
+	}
+	
+	public static String cargar_palabra() {
+		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+		String palabra;
+		try {
+			palabra = new String(entrada.readLine());
+		} catch (Exception exc) {
+			System.out.println( exc );
+			palabra = "hola";
+		}
+		return palabra;
+	}
+	
+
+	public static void CargarArchivos(Sistema s) {
+
+		String Archivo_Aeropuertos = "src/progTPE/Informacion para setear/Aeropuertos.csv";
+		String Archivo_Rutas = "src/progTPE/Informacion para setear/Rutas.csv";
+		String Archivo_Reservas = "src/progTPE/Informacion para setear/Reservas.csv";
+		String line = "";
+		String cvsSplitBy = ";";
+
+		try (BufferedReader br = new BufferedReader(new FileReader(Archivo_Aeropuertos))) {
+
+			while ((line = br.readLine()) != null) {
+
+				String[] aeropuertos = line.split(cvsSplitBy);
+
+				Aeropuerto aeropuerto = new Aeropuerto(aeropuertos[0], aeropuertos[1], aeropuertos[2]);
+				s.setAeropuerto(aeropuerto);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try (BufferedReader br = new BufferedReader(new FileReader(Archivo_Rutas))) {
+
+			while ((line = br.readLine()) != null) {
+
+				String[] rutas = line.split(cvsSplitBy);
+
+				Vector<Aerolinea> aux = new Vector<>();
+
+				Aeropuerto origen = s.Buscar_Aeropuerto(rutas[0]);
+				Aeropuerto destino = s.Buscar_Aeropuerto(rutas[1]);
+				Double km = Double.parseDouble(rutas[2]);
+				boolean cabotaje = Boolean.parseBoolean(rutas[3]);
+				Ruta ruta = new Ruta(origen, destino, km, cabotaje);
+
+				if (rutas[3].equals("1")) {
+					rutas[3] = "false";
+				} else {
+					rutas[3] = "true";
+				}
+				
+
+				String[] aerolineas = rutas[4].split(",");
+				for (int i = 0; i < aerolineas.length; i++) {
+					aerolineas[i] = aerolineas[i].replaceAll("\\}", "");
+					aerolineas[i] = aerolineas[i].replaceAll("\\{", "");
+					String[] aerolineasAux = aerolineas[i].split("-");
+		
+					int numero = Integer.parseInt(aerolineasAux[1]);
+					Aerolinea AeroAux = new Aerolinea(aerolineasAux[0], numero);
+					ruta.setAerolinea(AeroAux);
+				}
+				s.setRuta(ruta);
+
+			}
+			
+			
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(Archivo_Reservas))) {
+
+			while ((line = br.readLine()) != null) {
+
+				String[] reservas = line.split(cvsSplitBy);
+				Aeropuerto origen = s.Buscar_Aeropuerto(reservas[0]);
+				Aeropuerto destino = s.Buscar_Aeropuerto(reservas[1]);
+				int cant = Integer.parseInt(reservas[3]);
+				Reserva reserva = new Reserva(origen, destino, reservas[2], cant);
+				s.setReserva(reserva);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+	}
+	
+	public static void escribir_archivo_servicio1(Vector<Object> ruta_info) {
+		
+		BufferedWriter bw = null;
+		try {
+			File file = new File("src/progTPE/Informacion salida/salida.csv");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+
+			Object km = ruta_info.elementAt(0);
+			Object asientos_disponibles = ruta_info.elementAt(1);
+			String contenidoLinea1 = km + ";"+ asientos_disponibles;
+			bw.write(contenidoLinea1);
+			bw.newLine();
+
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+			} catch (Exception ex) {
+				System.out.println("Error cerrando el BufferedWriter" + ex);
+			}
+		}
+	}
+	public static void escribir_archivo_servicio2(Vector<Camino> caminos) {
+		
+		BufferedWriter bw = null;
+		try {
+			File file = new File("src/progTPE/Informacion salida/salida.csv");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+
+			
+			for(int i =0;i<caminos.size();i++) {
+				Camino aux = caminos.elementAt(i);
+				String contenidoLinea1 = aux.getKilometros() + ";"+ aux.getRutas();
+				bw.write(contenidoLinea1);
+				bw.newLine();
+			}
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+			} catch (Exception ex) {
+				System.out.println("Error cerrando el BufferedWriter" + ex);
+			}
+		}
+	}
+	
+	public static void escribir_archivo_tpeParte2(Camino camino) {
+		
+		BufferedWriter bw = null;
+		try {
+			File file = new File("src/progTPE/Informacion salida/salida.csv");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+
+				String contenidoLinea1 = camino.getKilometros() + ";";
+				for(int i=0;i<camino.getRutas().size();i++) {
+					contenidoLinea1+= camino.getRutas().elementAt(i).getDestino().getNombre() + " , ";
+				}
+				bw.write(contenidoLinea1);
+				bw.newLine();
+			
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+			} catch (Exception ex) {
+				System.out.println("Error cerrando el BufferedWriter" + ex);
+			}
+		}
+	}
 	
 	
 	

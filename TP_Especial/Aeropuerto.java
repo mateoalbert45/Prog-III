@@ -63,4 +63,15 @@ public String getCiudad() {
 public void setCiudad(String ciudad) {
 	Ciudad = ciudad;
 }
+
+public Ruta getOpuesta(Aeropuerto origen, Aeropuerto destino) {
+	for(int i = 0; i< Rutas.size();i++) {
+		if(Rutas.elementAt(i).getDestino().equals(origen) && Rutas.elementAt(i).getOrigen().equals(destino)) {
+			return Rutas.elementAt(i);
+		}
+	}
+	return null;
+}
+
+
 }

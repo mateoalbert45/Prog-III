@@ -33,15 +33,14 @@ public class Sistema {
 
 	}
 
-	public void impimir_aeropuertos(Vector<Aeropuerto> aeropuertos_visitados) {
-		for (int i = 0; i < aeropuertos_visitados.size(); i++) {
-			System.out.println("Aeropuerto: " + aeropuertos_visitados.elementAt(i).getNombre());
+	public void impimir_aeropuertos() {
+		for (int i = 0; i < Aeropuertos.size(); i++) {
+			System.out.println("Aeropuerto: " + Aeropuertos.elementAt(i).getNombre());
 //			System.out.println("Ciudad: " + aeropuertos_visitados.elementAt(i).getCiudad());
 //			System.out.println("Pais: " + aeropuertos_visitados.elementAt(i).getPais());
 			System.out.println("-----------------------------");
 
 		}
-		System.out.println("---dooooouuuu-----");
 
 	}
 
@@ -121,126 +120,189 @@ public class Sistema {
 	// enunciado 2
 	// backtracking
 
-	public void dfs(Aeropuerto destino) {
+	public Camino camino_corto_backtracking(Aeropuerto actual_destino) {
 
 		for (int i = 0; i < Aeropuertos.size(); i++) {
-			Aeropuertos.elementAt(i).setEstado("blanco");
+			Aeropuertos.elementAt(i).setEstado("Sin Visitar");
 		}
 		Vector<Aeropuerto> aeropuertos_visitados = new Vector<>();
-		Vector<Aeropuerto> lista_nodos = new Vector<>();
+		Vector<Ruta> rutas_visitados = new Vector<>();
+		Vector<Camino> caminos = new Vector<>();
 
-//		for(int i =0;i<Aeropuertos.size();i++) {
-//			Aeropuerto n= Aeropuertos.elementAt(i);
-		dfs_visit(destino, destino, aeropuertos_visitados);
+		Vector<Camino> caminos_totales = recorrido_backtracking(actual_destino, actual_destino, 0,
+				aeropuertos_visitados, rutas_visitados, caminos, 0);
 
+		if (caminos_totales.isEmpty()) {
+			System.out.println("No hay una solucion posible");
+		}
+
+		return mejor_camino(caminos_totales);// Esto no funciona debido a que no se porque los caminos no guardan el
+												// vector
+												// de rutas
 	}
 
-//	public int dfs_visit(Aeropuerto actual, Aeropuerto destino) {
-//		actual.setEstado("amarillo");
-//		//for(int i=0;i<actual.getRutas().size();i++) {
-//			Aeropuerto aux=actual.getRutas().elementAt(0).getDestino();
-//
-//			if(aux.getEstado().equals("blanco")) {
-//						 dfs_visit(aux,destino);
-//			}
-//
-//		//}		
-//		actual.setEstado("negro");
-//		
-//		System.out.println(actual.getNombre());
-//		return 0;
-//	}
+	private Camino mejor_camino(Vector<Camino> caminos_totales) {
+		double cantidad = 10000000.00;
+		Camino solucion = null;
+		for (int i = 0; i < caminos_totales.size(); i++) {
+			if (caminos_totales.elementAt(i).getKilometros() < cantidad) {
 
-	public void dfs_visit(Aeropuerto actual, Aeropuerto destino, Vector<Aeropuerto> aeropuertos_visitados) {
-
-		actual.getNombre();
-		if (aeropuertos_visitados.size() == 3) { //Aeropuertos.size()-1
-			aeropuertos_visitados.add(actual);
-			System.out.println("hola");
-			impimir_aeropuertos(aeropuertos_visitados);
-
-		} else {
-
-			for (int i = 0; i < actual.getRutas().size(); i++) {
-////				Ruta temporal = actual.getRutas().elementAt(i);
-				Aeropuerto aux = actual.getRutas().elementAt(i).getDestino();
-				aux.getNombre();
-
-				//actual.getRutas().remove(temporal);
-				
-				if (aux.getEstado().equals("blanco")) {
-					if (!aeropuertos_visitados.contains(aux)) {
-						aeropuertos_visitados.add(actual);
-						actual.setEstado("amarillo");
-
-						dfs_visit(aux, destino, aeropuertos_visitados);
-						aeropuertos_visitados.remove(actual);
-						actual.setEstado("blanco");
-
-
-					}
-				}
-//		//		actual.getRutas().add(temporal);
-
+				cantidad = caminos_totales.elementAt(i).getKilometros();
+				solucion = caminos_totales.elementAt(i);
 
 			}
 
-			// }
-			// actual.setEstado("negro");
-
-			// System.out.println(actual.getNombre());
 		}
+		return solucion;
 
 	}
 
-	
-	
-//	public void dfs_visit(Aeropuerto actual, Aeropuerto destino, Vector<Aeropuerto> aeropuertos_visitados, int hola) {
-//		
-//		actual.getNombre();
-//
-//
-//			for (int i = 0; i < actual.getRutas().size(); i++) {
-//				Aeropuerto aux = actual.getRutas().elementAt(i).getDestino();
-//				aeropuertos_visitados.add(actual);
-//				System.out.println("hola");
-//
-//				if (aux.equals(destino) && hola != 0) {
-//
-//					aeropuertos_visitados.add(aux);
-//					System.out.println("hola");
-//
-//					//imprimir_info_camino(camino);
-//
-//					aeropuertos_visitados.remove(aux);
-//
-//				} else if (aux.getEstado().equals("Sin Visitar")) {
-//
-//					aux.setEstado("Visitado");
-//					hola=1;
-//					dfs_visit(aux, destino, aeropuertos_visitados,1);
-//
-//					aux.setEstado("Sin Visitar");
-//				}
-//				aeropuertos_visitados.remove(actual);
-//
-//			}
-//		//		actual.getRutas().add(temporal);
-//
-//
-//			}
+	private Vector<Camino> recorrido_backtracking(Aeropuerto actual, Aeropuerto destino, int n,
+			Vector<Aeropuerto> aeropuertos_visitados, Vector<Ruta> rutas_visitadas, Vector<Camino> caminos,
+			int cantidad_kilometros) {
 
-			// }
-			// actual.setEstado("negro");
+		if (actual.equals(destino) && n == 1 && aeropuertos_visitados.size() == (Aeropuertos.size())) {
 
-			// System.out.println(actual.getNombre());
-		
+			Camino camino = new Camino(rutas_visitadas, rutas_visitadas.size(), cantidad_kilometros);
+			imprimir_info_camino_tpe2parte(camino); // imprimo la informacion aca porque no me guarda el vector de
+													// rutas_visitadas cuando lo retorna
+			caminos.add(camino);
+		} else {
 
-	
-	
-	
+			for (int i = 0; i < actual.getRutas().size(); i++) {
+				Ruta temporal = actual.getRutas().elementAt(i);
+				Aeropuerto aux = actual.getRutas().elementAt(i).getDestino();
+
+				aeropuertos_visitados.add(actual);
+				rutas_visitadas.add(temporal);
+				cantidad_kilometros += temporal.getKilometros();
+
+				if (aux.getEstado().equals("Sin Visitar")) {
+					if (contiene_menos_2_veces(aeropuertos_visitados, destino)) {
+
+						if (!actual.equals(destino)) {
+							actual.setEstado("Visitado");
+						}
+						recorrido_backtracking(aux, destino, 1, aeropuertos_visitados, rutas_visitadas, caminos,cantidad_kilometros);
+						actual.setEstado("Sin Visitar");
+
+					}
+				}
+				if (actual.equals(destino)) {
+					aeropuertos_visitados.remove(aeropuertos_visitados.size() - 1);
+					rutas_visitadas.remove(rutas_visitadas.size() - 1);
+				} else {
+					aeropuertos_visitados.remove(actual);
+					rutas_visitadas.remove(temporal);
+				}
+				cantidad_kilometros -= temporal.getKilometros();
+			}
+		}
+		return caminos;
+	}
+
+	private boolean contiene_menos_2_veces(Vector<Aeropuerto> aeropuertos_visitados, Aeropuerto destino) {
+		int cantidad = 0;
+		for (int i = 0; i < aeropuertos_visitados.size(); i++) {
+			if (aeropuertos_visitados.elementAt(i).equals(destino)) {
+				cantidad++;
+			}
+		}
+		if (cantidad < 2) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// enunciado 2
+	// greedy
+
+	public Camino camino_corto_greedy(Aeropuerto actual, Aeropuerto destino) {
+		for (int i = 0; i < Aeropuertos.size(); i++) {
+			Aeropuertos.elementAt(i).setEstado("Sin Visitar");
+		}
+
+		Vector<Aeropuerto> aeropuertos_visitados = new Vector<>();
+		Vector<Ruta> rutas_visitadas = new Vector<>();
+		double cantidad_kilometros = 0;
+		while (aeropuertos_visitados.size() < Aeropuertos.size() && !esNulo(actual.getRutas())) {
+			Ruta temporal = getRutaCorta(actual.getRutas());
+			Aeropuerto aux = temporal.getDestino();
+			cantidad_kilometros += temporal.getKilometros();
+			aeropuertos_visitados.add(actual);
+			rutas_visitadas.add(temporal);
+			actual = aux;
+			actual.setEstado("Visitado");
+
+		}
+
+		Camino camino = new Camino(rutas_visitadas, aeropuertos_visitados.size() + 1, cantidad_kilometros);
+		imprimir_info_camino_tpe2parte(camino);
+		return camino;
+	}
+
+	public Ruta getRutaCorta(Vector<Ruta> rutas) {
+		double cantidad = 10000000.00;
+		Ruta solucion = null;
+		for (int i = 0; i < rutas.size(); i++) {
+			Ruta temporal = rutas.elementAt(i);
+			if (temporal.getKilometros() < cantidad && temporal.getDestino().getEstado() == "Sin Visitar") {
+				cantidad = rutas.elementAt(i).getKilometros();
+				solucion = rutas.elementAt(i);
+
+			}
+
+		}
+
+		return solucion;
+	}
+
+	public boolean esNulo(Vector<Ruta> rutas) {
+		double cantidad = 10000000.00;
+		int nulo = 0;
+		for (int i = 0; i < rutas.size(); i++) {
+			Ruta temporal = rutas.elementAt(i);
+			if (temporal.getKilometros() < cantidad && temporal.getDestino().getEstado() == "Sin Visitar") {
+				cantidad = rutas.elementAt(i).getKilometros();
+				nulo = 1;
+			}
+
+		}
+		if (nulo == 1) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean retorna_origen(Vector<Aeropuerto> aeropuertos_visitados) {
+
+		for (int i = 0; i < aeropuertos_visitados.size(); i++) {
+			Aeropuerto aux = aeropuertos_visitados.elementAt(0);
+			if (aeropuertos_visitados.elementAt(i).equals(aux)) {
+				return true;
+			}
+
+		}
+		return false;
+	}
+
+	public void imprimir_info_camino_tpe2parte(Camino c) {
+		System.out.println("Camino encontrado ");
+
+		for (int i = 0; i < c.getRutas().size(); i++) {
+			Ruta aux = c.getRutas().elementAt(i);
+			System.out.println(
+					"Este vuelo va desde " + aux.getOrigen().getNombre() + " hasta " + aux.getDestino().getNombre());
+		}
+		System.out.println("Cantidad de escalas a realizar son " + c.getEscalas());
+		System.out.println("Cantidad Kilometros a realizar " + c.getKilometros() + "\n");
+	}
+
 	public void imprimir_info_camino(Camino c) {
 		System.out.println("Camino encontrado ");
+
 		for (int i = 0; i < c.getRutas().size(); i++) {
 			Ruta aux = c.getRutas().elementAt(i);
 			System.out.println("Las aerolineas disponible para ir desde " + aux.getOrigen().getNombre() + " hasta "
