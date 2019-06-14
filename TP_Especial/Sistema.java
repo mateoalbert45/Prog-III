@@ -95,8 +95,7 @@ public class Sistema {
 
 					Camino camino = new Camino(Rutas, Rutas.size(), cantidad_kilometros);
 					caminos.add(camino);
-					imprimir_info_camino(camino);
-
+//                                      imprimir_info_camino(camino);
 					vec.remove(aux);
 
 				} else if (aux.getEstado().equals("Sin Visitar")) {
