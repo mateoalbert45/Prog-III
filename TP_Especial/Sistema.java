@@ -95,7 +95,8 @@ public class Sistema {
 
 					Camino camino = new Camino(Rutas, Rutas.size(), cantidad_kilometros);
 					caminos.add(camino);
-//                                      imprimir_info_camino(camino);
+					imprimir_info_camino(camino);
+
 					vec.remove(aux);
 
 				} else if (aux.getEstado().equals("Sin Visitar")) {
@@ -338,7 +339,8 @@ public class Sistema {
 
 	}
 
-	public void vuelo_directo_pais_a_otro(String pais_origen, String pais_destino) {
+	public Vector <Camino_servicio3> vuelo_directo_pais_a_otro(String pais_origen, String pais_destino) {
+		Vector <Camino_servicio3>  caminos_totales = new Vector<>();
 		for (int i = 0; i < Aeropuertos.size(); i++) {
 			Aeropuerto a = Aeropuertos.elementAt(i);
 			if (a.getPais().equals(pais_origen)) {
@@ -354,19 +356,18 @@ public class Sistema {
 							System.out.println("Cantidad de pasajes disponibles " + pasajes_disponibles);
 
 							if (pasajes_disponibles > 0) {
-								System.out.println("Aeropuerto origen " + r.getOrigen().getNombre()
-										+ " Aeropuerto destino " + r.getDestino().getNombre());
-								System.out.println("Aerolinea: " + AeroAux);
+								Camino_servicio3 camino = new Camino_servicio3(r,pasajes_disponibles,AeroAux);
+								caminos_totales.add(camino);
 							}
-							System.out.println("----");
 						}
-						System.out.println("---------------------------- ");
+			
 
 					}
 				}
 
 			}
 		}
+		return caminos_totales;
 
 	}
 

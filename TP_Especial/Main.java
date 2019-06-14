@@ -185,7 +185,8 @@ public class Main {
 				String origen = cargar_palabra();
 				System.out.println("Ingresa el nombre del pais destino");
 				String destino = cargar_palabra();
-				s.vuelo_directo_pais_a_otro(origen, destino);
+				Vector<Camino_servicio3> info = s.vuelo_directo_pais_a_otro(origen, destino);
+				escribir_archivo_servicio3(info);
 
 			}
 			else if (num == 6) {
@@ -367,6 +368,38 @@ public class Main {
 			for(int i =0;i<caminos.size();i++) {
 				Camino aux = caminos.elementAt(i);
 				String contenidoLinea1 = aux.getKilometros() + ";"+ aux.getRutas();
+				bw.write(contenidoLinea1);
+				bw.newLine();
+			}
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+			} catch (Exception ex) {
+				System.out.println("Error cerrando el BufferedWriter" + ex);
+			}
+		}
+	}
+	
+	public static void escribir_archivo_servicio3(Vector<Camino_servicio3> caminos) {
+		
+		BufferedWriter bw = null;
+		try {
+			File file = new File("src/progTPE/Informacion salida/salida.csv");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file);
+			bw = new BufferedWriter(fw);
+
+			
+			for(int i =0;i<caminos.size();i++) {
+				Camino_servicio3 aux = caminos.elementAt(i);
+				String contenidoLinea1 = aux.getCant_pasajes() + ";"+ aux.getRuta().getOrigen().getNombre() + "-->" +aux.getRuta().getDestino().getNombre();
+				 contenidoLinea1 += ";" + aux.getAerolinea();
 				bw.write(contenidoLinea1);
 				bw.newLine();
 			}
